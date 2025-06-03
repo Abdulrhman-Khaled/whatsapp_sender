@@ -1,8 +1,8 @@
 app_name = "whatsapp_sender"
 app_title = "Whatsapp Sender"
-app_publisher = "ERPGulf"
+app_publisher = "Bodykh"
 app_description = "ERPNext app for sending whatsapp messages"
-app_email = "support@ERPGulf.com"
+app_email = "bodykh@itqan-kw.net"
 app_license = "MIT"
 #Update to push
 # required_apps = []
