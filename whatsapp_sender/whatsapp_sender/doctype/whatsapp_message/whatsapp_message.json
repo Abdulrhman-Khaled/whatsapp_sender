@@ -9,7 +9,6 @@
  "field_order": [
   "url",
   "token",
-  "from",
   "to",
   "device_id"
  ],
@@ -29,16 +28,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "from",
-   "fieldtype": "Phone",
-   "hidden": 1,
-   "label": "From Number ( for testing )"
-  },
-  {
    "fieldname": "to",
-   "fieldtype": "Phone",
-   "label": "Test Receiver Number",
-   "options": "phone"
+   "fieldtype": "Data",
+   "label": "Test Receiver Number"
   },
   {
    "fieldname": "device_id",
@@ -51,7 +43,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-06-03 12:57:41.813479",
+ "modified": "2025-06-03 13:18:01.901083",
  "modified_by": "Administrator",
  "module": "Whatsapp Sender",
  "name": "whatsapp message",
