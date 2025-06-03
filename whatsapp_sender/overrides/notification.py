@@ -12,10 +12,12 @@ from frappe import enqueue
 # to send whatsapp message
 class ERPGulfNotification(Notification):
    
-  #send message without pdf
   def send_whatsapp(self,doc,context):
+
     token = frappe.get_doc('whatsapp message').get('token')
-    message_url =  frappe.get_doc('whatsapp message').get('message_url')
+    url =  frappe.get_doc('whatsapp message').get('url')
+    deviceId =  frappe.get_doc('whatsapp message').get('device_id')
+
     msg1 = frappe.render_template(self.message, context)
     recipients = self.get_receiver_list(doc,context) 
     multiple_numbers=[] 
@@ -24,14 +26,14 @@ class ERPGulfNotification(Notification):
       multiple_numbers.append(number)
     add_multiple_numbers_to_url=','.join(multiple_numbers)
     payload = {
-        'token': token,
-        'to':add_multiple_numbers_to_url,
-        'body':msg1,
+        "device": deviceId,
+        "phone": add_multiple_numbers_to_url,
+        "authKey": token,
+        "message": msg1
        }
-    headers = {'content-type': 'application/x-www-form-urlencoded'}
     try:
         time.sleep(10)
-        response = requests.post(message_url, data=payload, headers=headers)
+        response = requests.post(url, data=payload)
       # when the msg send is success then its details are stored into whatsapp_sender log  
         if response.status_code == 200:
             response_json = response.json()
